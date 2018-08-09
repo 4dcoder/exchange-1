@@ -1,9 +1,14 @@
 
+const lang = localStorage.getItem('lang') || 'zh_CN';
+
 export default {
 
-  namespace: 'example',
+  namespace: 'global',
 
-  state: {},
+  state: {
+    lang,
+    language: import(`languages/${lang}`).default
+  },
 
   subscriptions: {
     setup({ dispatch, history }) {  // eslint-disable-line
@@ -17,7 +22,7 @@ export default {
   },
 
   reducers: {
-    save(state, action) {
+    switchLanguage(state, action) {
       return { ...state, ...action.payload };
     },
   },

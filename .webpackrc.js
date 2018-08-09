@@ -9,7 +9,12 @@ export default {
     }
   },
   alias: {
-    components: path.resolve(__dirname, 'src/components/')
+    assets: path.resolve(__dirname, 'src/assets/'),
+    components: path.resolve(__dirname, 'src/components/'),
+    languages: path.resolve(__dirname, 'src/languages/'),
+    models: path.resolve(__dirname, 'src/models/'),
+    services: path.resolve(__dirname, 'src/services/'),
+    utils: path.resolve(__dirname, 'src/utils/')
   },
   ignoreMomentLocale: true,
   theme: './src/theme.js',

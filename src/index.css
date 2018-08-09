@@ -1,0 +1,33 @@
+html,
+body,
+:global(#root) {
+  height: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:global(.container) {
+  position: relative;
+}
+
+:global(.wrapper) {
+  display: flex;
+  min-width: 1380px;
+  padding: 0 100px;
+  justify-content: space-between;
+}
+
+:global(.content) {
+}
+
+:global(a:link),
+:global(a:visited) {
+  outline: none !important;
+  text-decoration: none !important;
+}
+
+:global(.ant-dropdown-menu-item > img) {
+  width: 24px;
+  height: 15px;
+}
