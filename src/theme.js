@@ -1,6 +1,6 @@
 // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
 module.exports = {
-  'primary-color': 'rgb(245, 188, 0)',
+  'primary-color': '#d4a668',
   'body-background': '#f5f5f5',
   'component-background': '#f5f5f5',
   'text-color': '#666',
