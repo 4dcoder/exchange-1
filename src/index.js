@@ -9,10 +9,10 @@ const app = dva({ history: createHistory() });
 // app.use({});
 
 // 3. Model
-app.model(import('./models/global').default);
+app.model(require('./models/global').default);
 
 // 4. Router
-app.router(import('./router').default);
+app.router(require('./router').default);
 
 // 5. Start
 app.start('#root');

@@ -1,14 +1,11 @@
 html,
 body,
 :global(#root) {
-  height: 100%;
+  position: relative;
+  min-height: 100%;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-:global(.container) {
-  position: relative;
 }
 
 :global(.wrapper) {
@@ -18,7 +15,35 @@ body,
   justify-content: space-between;
 }
 
-:global(.content) {
+:global(.page-loading) {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  background: #353c4a;
+  z-index: 10;
+}
+
+:global(.container-loading) {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+:global(.ant-spin-spinning) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 :global(a:link),

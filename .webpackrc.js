@@ -24,7 +24,7 @@ export default {
   lessLoaderOptions: {
     javascriptEnabled: true
   },
-  disableDynamicImport: true,
+  disableDynamicImport: false,
   publicPath: '/',
   hash: true
 };
