@@ -9,22 +9,18 @@ import logo from '../../../logo.svg';
 
 @connect(({ global }) => ({ global }))
 class Main extends PureComponent {
-  handleSwitchLanguage = ({ key }) => {
-    localStorage.setItem('lang', key);
+  dispatch = this.props.dispatch;
 
-    const { dispatch } = this.props;
-    dispatch({
+  handleSwitchLanguage = ({ key }) => {
+    this.dispatch({
       type: 'global/switchLanguage',
-      payload: {
-        lang: key,
-        language: require(`languages/${key}`).default
-      }
+      payload: { language: key }
     });
   };
 
   render() {
     const { global } = this.props;
-    const { lang, language } = global;
+    const { language, localization } = global;
 
     return (
       <Fragment>
@@ -36,25 +32,25 @@ class Main extends PureComponent {
               </Link>
               <nav className={styles.headerNav}>
                 <NavLink activeClassName={styles.active} to="/exchange">
-                  {language['币币交易']}
+                  {localization['币币交易']}
                 </NavLink>
                 <NavLink activeClassName={styles.active} to="/offline">
-                  {language['C2C交易']}
+                  {localization['C2C交易']}
                 </NavLink>
                 <NavLink activeClassName={styles.active} to="/help">
-                  {language['帮助中心']}
+                  {localization['帮助中心']}
                 </NavLink>
                 <NavLink activeClassName={styles.active} to="/notice">
-                  {language['公告中心']}
+                  {localization['公告中心']}
                 </NavLink>
               </nav>
             </div>
             <div className={styles.headerRight}>
               <Link className={styles.signin} to="/signin">
-                {language['登录']}
+                {localization['登录']}
               </Link>
               <Link className={styles.signup} to="/signup">
-                {language['注册']}
+                {localization['注册']}
               </Link>
               <Dropdown
                 overlay={
@@ -65,7 +61,7 @@ class Main extends PureComponent {
                 }
               >
                 <a className={('ant-dropdown-link', styles.language)} href="javascript:;">
-                  {getFlag(lang)}
+                  {getFlag(language)}
                   <Icon type="down" />
                 </a>
               </Dropdown>

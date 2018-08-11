@@ -1,30 +1,32 @@
-const lang = localStorage.getItem('lang') || 'zh_CN';
+const language = localStorage.getItem('language') || 'zh_CN';
 
 export default {
   namespace: 'global',
 
   state: {
-    lang,
-    language: require(`languages/${lang}`).default
+    language,
+    localization: require(`languages/${language}`).default
   },
 
   subscriptions: {
     setup({ dispatch, history }) {
-      // eslint-disable-line
-      console.log('subscriptions')
+      console.log('subscriptions');
     }
   },
 
   effects: {
     *fetch({ payload }, { call, put }) {
-      // eslint-disable-line
       yield put({ type: 'save' });
     }
   },
 
   reducers: {
+    // 切换语言
     switchLanguage(state, action) {
-      return { ...state, ...action.payload };
+      const { language } = action.payload;
+      const localization = require(`languages/${language}`).default;
+      localStorage.setItem('language', language);
+      return { ...state, language, localization };
     }
   }
 };
