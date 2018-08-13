@@ -85,7 +85,7 @@ export function getMaxPoint(numbers) {
  * @param lang {string} 语言key
  * @returns ReactElement
  **/
-export const getFlag = lang => {
+export function getFlag(lang) {
   const zh_CN_Flag =
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAgCAYAAABU1PscAAAAAXNSR0IArs4c6QAAAw5JREFUWAntl7trFFEUxs/M7MNNxEehKD5QUUQtJFaCYlBErQQR+xAVsdBGy6CNRSCVoAhaxVrEQvFP0M5OsBEUwSCKRpMYd7Mz/s7sXnCS2Xns3l1Z2AN3Z+Y+zv2+c75zZ9aZFQmkj83tY+wh9AGB/53BQQaWZ8BvdvTqZCgsB9Dps3uIY22NiDci4j/F24dOPSavz0TARNNJ9iU67n8WGb4nUtggsrAosvQgZVGHw9lqYK2IeyF9p5DoQUh8pf2gLZCNcvq6TmZkIuAdEVk1LlLPstMrkfmzIosPITAt4vzJsqj9OakENKrloyLFA+h6NP217fBq91hTfwT4Ji5/HWR20Xg2Rd4c6viygoAC/rdp1L3D/CCF0onomJkXhyIyBqPhO7iYgtSxuNnt90WK2F9NpM8DuEikQODQgq3ofxsb/AbAcfo/NfoF6k6JIp2h70kygNJl/BKEIimpvkiem3c0QsCZAzA5Ll0B9A5cqX41lFUaqXAgMnSLe80b4GuvaZPcp1iVU8ndjKsvBGe9XRmpZBVixOo7ATpBxJHMCtEqeLIx/xhegFe9p5nWQn0/P28b3NPm5xmPJaCMlmiV2xC5yE2t6VKRkJWfN+GFFJRLHlO/6sKmRSRkHOsm4UYaXkWpV23KSp+/5QdvGzgoQmsZRN1wiPNfKOjgI4F/xr3WAhouno7RHUOJpr72trEu0WlCIAsnWbmboL8UmR3js+CayNwN+t5Rv4zlOc+DUeppHEleJ7OsVSnZstgMhFodAfRdkV9jbPq+oaD6c5HvHLPVN3zrnMkGRH25G8kaJAqnGmtsyqllEQeb2HkmPkUafYfvI12cxYJ9BOAS8zmma0jRJQC2LJaALefGj5FbmFk6Y9NuJue82vTV2HoPMqFYi1d55OWlpptoM4ea9tmygi1Hxo8P0gr/AcpbKHRCX5sGPP8LumXWM+Dw5emhlQDQQQXdc+x20+zXwHYizwvPO8f1PgS6iR7f9gk0AZuC7TJ+qwdCBGu3I282s14DxnGvrgMCvYp0q336PgN/AYOotG1i1W6/AAAAAElFTkSuQmCC';
   const en_US_Flag =
@@ -102,4 +102,17 @@ export const getFlag = lang => {
     <img key="img" src={mapLangToFlag[lang]} alt={mapLangToText[lang]} />,
     <span key="text"> {mapLangToText[lang]} </span>
   ];
-};
+}
+
+/**
+ * @author WilliamCui
+ * @description 根据传入的title补全title全称
+ * @param title {string} 页面title
+ * @returns string
+ **/
+const indexTitle = document.title;
+export function setTitle(title) {
+  return localization => {
+    return `${localization[title]}-${localization[indexTitle]}`;
+  };
+}

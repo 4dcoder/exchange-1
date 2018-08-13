@@ -1,5 +1,4 @@
 const language = localStorage.getItem('language') || 'zh_CN';
-
 export default {
   namespace: 'global',
 
