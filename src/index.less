@@ -1,0 +1,101 @@
+@import '~antd/lib/style/themes/default.less';
+@import './utils/utils.less';
+
+html,
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:global {
+  #root {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .wrapper {
+    display: flex;
+    min-width: 1380px;
+    padding: 0 100px;
+    justify-content: space-between;
+  }
+
+  .page-loading {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background: #353c4a;
+    z-index: 10;
+  }
+
+  .container-loading {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+
+  a:link,
+  a:visited {
+    outline: none;
+    text-decoration: none;
+  }
+
+  .ant-btn-buy {
+    color: #fff !important;
+    border-color: @green-color !important;
+    background-color: @green-color !important;
+  }
+  
+  .ant-btn-buy:hover {
+    border-color: darken(@green-color, 10%) !important;
+    background-color: darken(@green-color, 10%) !important;
+  }
+  
+  .ant-btn-sell {
+    color: #fff !important;
+    border-color: @red-color !important;
+    background-color: @red-color !important;
+  }
+  
+  .ant-btn-sell:hover {
+    border-color: darken(@red-color, 10%) !important;
+    background-color: darken(@red-color, 10%) !important;
+  }
+  
+  .empty-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .ant-spin-spinning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ant-dropdown-menu-item > img {
+    width: 24px;
+    height: 15px;
+  }
+}

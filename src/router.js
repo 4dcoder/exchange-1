@@ -8,11 +8,12 @@ function RouterConfig({ history, app }) {
   const asyncComponent = (loader, models) => {
     return Loadable({
       loader,
+      delay: 200,
       loading: () => {
         if (models && models.length > 0) {
           models.forEach(model => {
-            const isModelExist = app._models.some(({namespace}) => namespace === model);
-            if(!isModelExist) {
+            const isModelExist = app._models.some(({ namespace }) => namespace === model);
+            if (!isModelExist) {
               app.model(require(`models/${model}`).default);
             }
           });
@@ -22,15 +23,18 @@ function RouterConfig({ history, app }) {
             <ScaleLoader color={'#d4a668'} height={100} width={5} margin="5px" radius={5} loading />
           </div>
         );
-      },
-      delay: 200
+      }
     });
   };
 
   const Home = asyncComponent(() => import('./routes/Main/Home'), ['exchange']);
   const Exchange = asyncComponent(() => import('./routes/Main/Exchange'), ['exchange']);
+  const Offline = asyncComponent(() => import('./routes/Main/Offline'), ['offline']);
+  const Help = asyncComponent(() => import('./routes/Main/Help'), ['help']);
+  const Notice = asyncComponent(() => import('./routes/Main/Notice'), ['notice']);
+  const User = asyncComponent(() => import('./routes/Main/User'), ['user']);
   const SignIn = asyncComponent(() => import('./routes/Join/SignIn'));
-  const SignUp = asyncComponent(() => import('./routes/Join/SignUp'));
+  const SignUp = asyncComponent(() => import('./routes/Join/SignUp'), ['signup']);
   const NotFound = asyncComponent(() => import('./routes/Exception/404'));
 
   return (
@@ -38,6 +42,10 @@ function RouterConfig({ history, app }) {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/exchange" exact component={Exchange} />
+        <Route path="/offline" exact component={Offline} />
+        <Route path="/help" exact component={Help} />
+        <Route path="/notice" exact component={Notice} />
+        <Route path="/user" exact component={User} />
         <Route path="/signin" exact component={SignIn} />
         <Route path="/signup" exact component={SignUp} />
         <Route component={NotFound} />
