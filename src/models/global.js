@@ -10,7 +10,7 @@ export default {
 
   subscriptions: {
     setup({ dispatch, history }) {
-      console.log('subscriptions');
+      console.log('global');
     }
   },
 

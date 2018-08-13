@@ -3,24 +3,36 @@ import { Router, Route, Switch } from 'dva/router';
 import Loadable from 'react-loadable';
 import { ScaleLoader } from 'react-spinners';
 
-const asyncComponent = loader =>
-  Loadable({
-    loader,
-    loading: () => (
-      <div className="page-loading">
-        <ScaleLoader color={'#d4a668'} height={100} width={5} margin="5px" radius={5} loading />
-      </div>
-    ),
-    delay: 200
-  });
+function RouterConfig({ history, app }) {
+  // 异步加载组件
+  const asyncComponent = (loader, models) => {
+    return Loadable({
+      loader,
+      loading: () => {
+        if (models && models.length > 0) {
+          models.forEach(model => {
+            const isModelExist = app._models.some(({namespace}) => namespace === model);
+            if(!isModelExist) {
+              app.model(require(`models/${model}`).default);
+            }
+          });
+        }
+        return (
+          <div className="page-loading">
+            <ScaleLoader color={'#d4a668'} height={100} width={5} margin="5px" radius={5} loading />
+          </div>
+        );
+      },
+      delay: 200
+    });
+  };
 
-const Home = asyncComponent(() => import('./routes/Main/Home'));
-const Exchange = asyncComponent(() => import('./routes/Main/Exchange'));
-const SignIn = asyncComponent(() => import('./routes/Join/SignIn'));
-const SignUp = asyncComponent(() => import('./routes/Join/SignUp'));
-const NotFound = asyncComponent(() => import('./routes/Exception/404'));
+  const Home = asyncComponent(() => import('./routes/Main/Home'), ['exchange']);
+  const Exchange = asyncComponent(() => import('./routes/Main/Exchange'), ['exchange']);
+  const SignIn = asyncComponent(() => import('./routes/Join/SignIn'));
+  const SignUp = asyncComponent(() => import('./routes/Join/SignUp'));
+  const NotFound = asyncComponent(() => import('./routes/Exception/404'));
 
-function RouterConfig({ history }) {
   return (
     <Router history={history}>
       <Switch>

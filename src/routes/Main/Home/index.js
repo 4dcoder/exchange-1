@@ -6,7 +6,11 @@ import styles from './home.less';
 @connect(() => ({}))
 class Home extends PureComponent {
   render() {
-    return <Main>这是首页</Main>;
+    return (
+      <Main>
+        <div className="wrapper">这是首页</div>
+      </Main>
+    );
   }
 }
 

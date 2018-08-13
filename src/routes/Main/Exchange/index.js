@@ -6,7 +6,11 @@ import styles from './exchange.less';
 @connect(() => ({}))
 class Exchange extends PureComponent {
   render() {
-    return <Main>这是币币交易</Main>;
+    return (
+      <Main>
+        <div className="wrapper">这是币币交易</div>
+      </Main>
+    );
   }
 }
 
