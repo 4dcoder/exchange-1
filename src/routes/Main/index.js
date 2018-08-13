@@ -7,7 +7,7 @@ import { getFlag } from 'utils';
 import styles from './main.less';
 import logo from '../../../logo.svg';
 
-@connect(({ global }) => ({ global }))
+@connect(({ global }) => ({ ...global }))
 class Main extends PureComponent {
   dispatch = this.props.dispatch;
 
@@ -19,8 +19,7 @@ class Main extends PureComponent {
   };
 
   render() {
-    const { global } = this.props;
-    const { language, localization } = global;
+    const { language, localization } = this.props;
 
     return (
       <Fragment>

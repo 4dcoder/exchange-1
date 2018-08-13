@@ -8,5 +8,7 @@ export default {
   C2C交易: 'C2C',
   帮助中心: 'Help',
   公告中心: 'Notice',
+  用户中心: 'User',
+  找回密码: 'Reset Password',
   未找到页面: 'Not Found Page',
 }

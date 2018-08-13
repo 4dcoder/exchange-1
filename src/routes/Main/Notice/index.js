@@ -5,11 +5,10 @@ import { setTitle } from 'utils';
 import Main from '../';
 import styles from './notice.less';
 
-@connect(({ global }) => ({ global }))
+@connect(({ global }) => ({ ...global }))
 class Notice extends PureComponent {
   render() {
-    const { global } = this.props;
-    const { localization } = global;
+    const { localization } = this.props;
     return (
       <DocumentTitle title={setTitle('公告中心')(localization)}>
         <Main>

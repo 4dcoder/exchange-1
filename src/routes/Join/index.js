@@ -6,7 +6,7 @@ import { getFlag } from 'utils';
 import { connect } from 'dva';
 import styles from './join.less';
 
-@connect(({ global }) => ({ global }))
+@connect(({ global }) => ({ ...global }))
 class Join extends PureComponent {
   dispatch = this.props.dispatch;
 
@@ -18,8 +18,7 @@ class Join extends PureComponent {
   };
 
   render() {
-    const { global } = this.props;
-    const { language, localization } = global;
+    const { language, localization } = this.props;
 
     return (
       <div className={styles.joinWrap}>

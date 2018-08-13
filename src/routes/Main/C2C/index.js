@@ -5,11 +5,10 @@ import { setTitle } from 'utils';
 import Main from '../';
 import styles from './c2c.less';
 
-@connect(({ global }) => ({ global }))
+@connect(({ global }) => ({ ...global }))
 class C2C extends PureComponent {
   render() {
-    const { global } = this.props;
-    const { localization } = global;
+    const { localization } = this.props;
     return (
       <DocumentTitle title={setTitle('C2C交易')(localization)}>
         <Main>

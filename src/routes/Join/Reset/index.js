@@ -3,18 +3,18 @@ import { connect } from 'dva';
 import DocumentTitle from 'react-document-title';
 import { setTitle } from 'utils';
 import Join from '../';
-import styles from './signup.less';
+import styles from './reset.less';
 
 @connect(({ global }) => ({ ...global }))
-class SignUp extends PureComponent {
+class Reset extends PureComponent {
   render() {
     const { localization } = this.props;
     return (
-      <DocumentTitle title={setTitle('注册')(localization)}>
-        <Join>这是注册页面</Join>
+      <DocumentTitle title={setTitle('找回密码')(localization)}>
+        <Join>这是找回密码页面</Join>
       </DocumentTitle>
     );
   }
 }
 
-export default SignUp;
+export default Reset;

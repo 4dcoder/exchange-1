@@ -5,11 +5,10 @@ import { setTitle } from 'utils';
 import Main from '../';
 import styles from './help.less';
 
-@connect(({ global }) => ({ global }))
+@connect(({ global }) => ({ ...global }))
 class Help extends PureComponent {
   render() {
-    const { global } = this.props;
-    const { localization } = global;
+    const { localization } = this.props;
     return (
       <DocumentTitle title={setTitle('帮助中心')(localization)}>
         <Main>

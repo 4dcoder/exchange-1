@@ -5,11 +5,10 @@ import { setTitle } from 'utils';
 import { Button } from 'antd';
 import styles from './404.less';
 
-@connect(({ global }) => ({ global }))
+@connect(({ global }) => ({ ...global }))
 class NotFound extends PureComponent {
   render() {
-    const { global } = this.props;
-    const { localization } = global;
+    const { localization } = this.props;
     return (
       <DocumentTitle title={setTitle('未找到页面')(localization)}>
         <div className={styles.wrap}>

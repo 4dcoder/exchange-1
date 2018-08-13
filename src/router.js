@@ -35,6 +35,7 @@ function RouterConfig({ history, app }) {
   const User = asyncComponent(() => import('./routes/Main/User'), ['user']);
   const SignIn = asyncComponent(() => import('./routes/Join/SignIn'));
   const SignUp = asyncComponent(() => import('./routes/Join/SignUp'), ['signup']);
+  const Reset = asyncComponent(() => import('./routes/Join/Reset'));
   const NotFound = asyncComponent(() => import('./routes/Exception/404'));
 
   return (
@@ -48,6 +49,7 @@ function RouterConfig({ history, app }) {
         <Route path="/user" exact component={User} />
         <Route path="/signin" exact component={SignIn} />
         <Route path="/signup" exact component={SignUp} />
+        <Route path="/reset" exact component={Reset} />
         <Route component={NotFound} />
       </Switch>
     </Router>

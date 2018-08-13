@@ -5,13 +5,12 @@ import { setTitle } from 'utils';
 import Main from '../';
 import styles from './home.less';
 
-@connect(({ global }) => ({ global }))
+@connect(({ global, exchange }) => ({ ...global, ...exchange }))
 class Home extends PureComponent {
   dispatch = this.props.dispatch;
 
   render() {
-    const { global } = this.props;
-    const { localization } = global;
+    const { localization } = this.props;
     return (
       <DocumentTitle title={setTitle('首页')(localization)}>
         <Main>
