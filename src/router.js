@@ -29,7 +29,7 @@ function RouterConfig({ history, app }) {
 
   const Home = asyncComponent(() => import('./routes/Main/Home'), ['exchange']);
   const Exchange = asyncComponent(() => import('./routes/Main/Exchange'), ['exchange']);
-  const Offline = asyncComponent(() => import('./routes/Main/Offline'), ['offline']);
+  const C2C = asyncComponent(() => import('./routes/Main/C2C'), ['c2c']);
   const Help = asyncComponent(() => import('./routes/Main/Help'), ['help']);
   const Notice = asyncComponent(() => import('./routes/Main/Notice'), ['notice']);
   const User = asyncComponent(() => import('./routes/Main/User'), ['user']);
@@ -42,7 +42,7 @@ function RouterConfig({ history, app }) {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/exchange" exact component={Exchange} />
-        <Route path="/offline" exact component={Offline} />
+        <Route path="/c2c" exact component={C2C} />
         <Route path="/help" exact component={Help} />
         <Route path="/notice" exact component={Notice} />
         <Route path="/user" exact component={User} />

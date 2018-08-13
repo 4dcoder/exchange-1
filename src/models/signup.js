@@ -1,5 +1,5 @@
 export default {
-  namespace: 'offline',
+  namespace: 'signup',
 
   state: {
     market: ''
@@ -18,9 +18,6 @@ export default {
   },
 
   reducers: {
-    
-    save(state, action) {
-      
-    }
+    save(state, action) {}
   }
 };

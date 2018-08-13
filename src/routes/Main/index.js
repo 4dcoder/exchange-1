@@ -34,7 +34,7 @@ class Main extends PureComponent {
                 <NavLink activeClassName={styles.active} to="/exchange">
                   {localization['币币交易']}
                 </NavLink>
-                <NavLink activeClassName={styles.active} to="/offline">
+                <NavLink activeClassName={styles.active} to="/c2c">
                   {localization['C2C交易']}
                 </NavLink>
                 <NavLink activeClassName={styles.active} to="/help">

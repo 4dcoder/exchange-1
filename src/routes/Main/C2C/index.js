@@ -3,10 +3,10 @@ import { connect } from 'dva';
 import DocumentTitle from 'react-document-title';
 import { setTitle } from 'utils';
 import Main from '../';
-import styles from './offline.less';
+import styles from './c2c.less';
 
 @connect(({ global }) => ({ global }))
-class Offline extends PureComponent {
+class C2C extends PureComponent {
   render() {
     const { global } = this.props;
     const { localization } = global;
@@ -20,4 +20,4 @@ class Offline extends PureComponent {
   }
 }
 
-export default Offline;
+export default C2C;
