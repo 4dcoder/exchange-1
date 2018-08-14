@@ -27,8 +27,8 @@ class Join extends PureComponent {
         <Dropdown
           overlay={
             <Menu onClick={this.handleSwitchLanguage}>
-              <Menu.Item key="en_US">{getFlag('en_US')}</Menu.Item>
               <Menu.Item key="zh_CN">{getFlag('zh_CN')}</Menu.Item>
+              <Menu.Item key="en_US">{getFlag('en_US')}</Menu.Item>
             </Menu>
           }
         >

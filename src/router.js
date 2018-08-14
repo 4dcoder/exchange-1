@@ -4,7 +4,7 @@ import Loadable from 'react-loadable';
 import { ScaleLoader } from 'react-spinners';
 
 function RouterConfig({ history, app }) {
-  // 异步加载组件
+  // 异步加载component以及model
   const asyncComponent = (loader, models) => {
     return Loadable({
       loader,

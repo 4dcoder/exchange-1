@@ -8,7 +8,6 @@ import styles from './exchange.less';
 @connect(({ global, exchange }) => ({ ...global, ...exchange }))
 class Exchange extends PureComponent {
   render() {
-    console.log(this.props);
     const { localization } = this.props;
     return (
       <DocumentTitle title={setTitle('币币交易')(localization)}>

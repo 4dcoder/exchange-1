@@ -2,7 +2,13 @@
 @import '../../utils/utils.less';
 
 .header {
+  display: flex;
+  width: 100%;
+  min-width: @wrapper-width;
   height: 60px;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: space-between;
   line-height: 60px;
   font-size: 16px;
   background-color: @header-bg-color;
@@ -20,7 +26,6 @@
       a {
         display: inline-block;
         padding: 0 20px;
-        line-height: 60px;
         &:link,
         &:visited {
           color: @gray-color;
@@ -36,8 +41,8 @@
           bottom: 0;
           left: 0;
           width: 100%;
-          border-top: 2px solid @primary-color;
           content: '';
+          border-top: 2px solid @primary-color;
         }
         &:hover:after {
           position: absolute;
@@ -47,7 +52,7 @@
           left: 0;
           content: '';
           background-color: @primary-color;
-          opacity: .2;
+          opacity: 0.2;
         }
       }
     }
@@ -90,10 +95,91 @@
 }
 
 .footer {
-  height: 240px;
+  height: 300px;
+  color: @footer-font-color;
   background-color: @footer-bg-color;
+  .floorOne {
+    height: 140px;
+    background-color: #2a2f3b;
+    .downApp {
+      display: flex;
+      width: 540px;
+      justify-content: space-between;
+      align-items: center;
+      .mobile {
+        margin-top: -30px;
+      }
+      .qrcode {
+        width: 100px;
+        height: 100px;
+        padding: 8px;
+        border: 1px solid @footer-font-color;
+        img {
+          width: 100%;
+        }
+      }
+      .link {
+        width: 180px;
+        :global {
+          a.ant-btn {
+            width: 100%;
+            margin: 10px 0;
+            color: lighten(@footer-font-color, 40%);
+            background-color: transparent;
+            border: 1px solid @footer-font-color;
+            .anticon {
+              margin-top: -5px;
+              font-size: 24px;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+    .footerLogo {
+      width: 300px;
+      text-align: right;
+      img {
+        max-width: 100px;
+      }
+      .slogan {
+        color: lighten(@footer-font-color, 40%);
+      }
+    }
+  }
+  .floorTwo {
+    height: 100px;
+    font-size: 16px;
+    background-color: #222734;
+  }
+  .floorThree {
+    height: 60px;
+    background: #1e232f;
+    .copyright {
+      font-size: 12px;
+    }
+    .socialMedia a {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin-left: 40px;
+      text-align: center;
+      line-height: 28px;
+      font-size: 20px;
+      border-radius: 50%;
+      background-color: #1a1c24;
+    }
+  }
+  a:link,
+  a:visited {
+    color: @footer-font-color;
+    transition: color 0.2s;
+  }
+  a:hover {
+    color: lighten(@footer-font-color, 30%);
+  }
 }
 
 .main {
-  flex: 1 1;
+  flex: 1 1 100%;
 }

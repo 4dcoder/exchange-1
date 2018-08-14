@@ -1,5 +1,5 @@
 export default {
-  区块链资产交易平台: 'Blockchain Asset Exchange',
+  区块链资产交易平台: 'Blockchain & Crypto Asset Exchange',
   登录: 'Sign In',
   注册: 'Sign Up',
   首页: 'Home',
@@ -9,6 +9,13 @@ export default {
   帮助中心: 'Help',
   公告中心: 'Notice',
   用户中心: 'User',
+  关于我们: 'About',
+  上币申请: 'Apply to List',
+  用户协议: 'Terms',
+  隐私声明: 'Privacy',
+  法律声明: 'Legal',
+  常见问题: 'FAQ',
   找回密码: 'Reset Password',
   未找到页面: 'Not Found Page',
+  全球专业数字资产交易所: 'The World Class Digital Asset Exchange',
 }

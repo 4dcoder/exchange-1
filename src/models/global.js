@@ -25,6 +25,7 @@ export default {
       const { language } = action.payload;
       const localization = require(`languages/${language}`).default;
       localStorage.setItem('language', language);
+      window.zE.setLocale(language);
       return { ...state, language, localization };
     }
   }

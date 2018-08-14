@@ -11,6 +11,30 @@
 
 <body>
   <div id="root"></div>
+  <!-- Start of uescoin Zendesk Widget script -->
+  <script>/*<![CDATA[*/window.zE || (function (e, t, s) { var n = window.zE = window.zEmbed = function () { n._.push(arguments) }, a = n.s = e.createElement(t), r = e.getElementsByTagName(t)[0]; n.set = function (e) { n.set._.push(e) }, n._ = [], n.set._ = [], a.async = true, a.setAttribute("charset", "utf-8"), a.src = "https://static.zdassets.com/ekr/asset_composer.js?key=" + s, n.t = +new Date, a.type = "text/javascript", r.parentNode.insertBefore(a, r) })(document, "script", "bd7ea4c2-9d54-4f3c-8066-c46401509a84");/*]]>*/</script>
+  <!-- End of uescoin Zendesk Widget script -->
+  <script>
+    zE(function () {
+      //en en_US en-GB zh  zh_CN
+      const language = localStorage.getItem('language') || 'zh_CN';
+      zE.setLocale(language);
+      zE.setHelpCenterSuggestions({ search: 'search string' });
+    });
+    window.zESettings = {
+      webWidget: {
+        //offset: { horizontal: '100px', vertical: '150px' },
+        color: { theme: '#d4a668' },
+        contactForm: {
+          enabled: false,
+          attachments: false
+        },
+        contactOptions: {
+          enabled: true
+        }
+      }
+    };
+  </script>
 </body>
 
 </html>

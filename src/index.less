@@ -18,8 +18,10 @@ body {
 
   .wrapper {
     display: flex;
-    min-width: 1380px;
-    padding: 0 100px;
+    width: @wrapper-width;
+    height: 100%;
+    margin: 0 auto;
+    align-items: center;
     justify-content: space-between;
   }
 
@@ -55,27 +57,27 @@ body {
   }
 
   .ant-btn-buy {
-    color: #fff !important;
+    color: @gray-color !important;
     border-color: @green-color !important;
     background-color: @green-color !important;
   }
-  
+
   .ant-btn-buy:hover {
     border-color: darken(@green-color, 10%) !important;
     background-color: darken(@green-color, 10%) !important;
   }
-  
+
   .ant-btn-sell {
-    color: #fff !important;
+    color: @gray-color !important;
     border-color: @red-color !important;
     background-color: @red-color !important;
   }
-  
+
   .ant-btn-sell:hover {
     border-color: darken(@red-color, 10%) !important;
     background-color: darken(@red-color, 10%) !important;
   }
-  
+
   .empty-handle {
     position: absolute;
     top: 0;
@@ -87,15 +89,28 @@ body {
     align-items: center;
     flex-direction: column;
   }
-  
+
   .ant-spin-spinning {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .ant-dropdown-menu-item > img {
-    width: 24px;
-    height: 15px;
+  .ant-dropdown {
+    position: relative;
+    top: 60px;
+    .ant-dropdown-menu {
+      padding: 10px 0;
+      .ant-dropdown-menu-item {
+        color: @gray-color;
+        &:hover {
+          background-color: darken(@component-background, 20%);
+        }
+        img {
+          width: 24px;
+          height: 15px;
+        }
+      }
+    }
   }
 }
