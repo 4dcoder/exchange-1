@@ -3,10 +3,10 @@ import { connect } from 'dva';
 import DocumentTitle from 'react-document-title';
 import { setTitle } from 'utils';
 import Main from '../';
-import styles from './user.less';
+import styles from './account.less';
 
 @connect(({ global }) => ({ ...global }))
-class User extends PureComponent {
+class Account extends PureComponent {
   render() {
     const { localization } = this.props;
     return (
@@ -19,4 +19,4 @@ class User extends PureComponent {
   }
 }
 
-export default User;
+export default Account;

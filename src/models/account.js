@@ -1,5 +1,5 @@
 export default {
-  namespace: 'user',
+  namespace: 'account',
 
   state: {
     market: ''
@@ -7,7 +7,7 @@ export default {
 
   subscriptions: {
     setup({ dispatch, history }) {
-      console.log('user');
+      console.log('account');
     }
   },
 
