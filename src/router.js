@@ -2,13 +2,15 @@ import React from 'react';
 import { Router, Route, Switch } from 'dva/router';
 import Loadable from 'react-loadable';
 import { ScaleLoader } from 'react-spinners';
+import Main from 'routes/Main';
+import User from 'routes/User';
 
 function RouterConfig({ history, app }) {
   // 异步加载component以及model
-  const asyncComponent = (path, models) => {
+  const asyncComponent = (loader, models) => {
     return Loadable({
       delay: 200,
-      loader: () => import(`./routes${path}`),
+      loader,
       loading: () => {
         if (models && models.length > 0) {
           models.forEach(model => {
@@ -27,29 +29,33 @@ function RouterConfig({ history, app }) {
     });
   };
 
-  const Home = asyncComponent('/Main/Home', ['exchange']);
-  const Exchange = asyncComponent('/Main/Exchange', ['exchange']);
-  const C2C = asyncComponent('/Main/C2C', ['c2c']);
-  const Help = asyncComponent('/Main/Help', ['help']);
-  const Notice = asyncComponent('/Main/Notice', ['notice']);
-  const Account = asyncComponent('/Main/Account', ['account']);
-  const SignIn = asyncComponent('/User/SignIn');
-  const SignUp = asyncComponent('/User/SignUp', ['signup']);
-  const Reset = asyncComponent('/User/Reset');
-  const NotFound = asyncComponent('/Exception/404');
+  const Home = asyncComponent(() => import('routes/Main/Home'), ['exchange']);
+  const Exchange = asyncComponent(() => import('routes/Main/Exchange'), ['exchange']);
+  const C2C = asyncComponent(() => import('routes/Main/C2C'), ['c2c']);
+  const Help = asyncComponent(() => import('routes/Main/Help'), ['help']);
+  const Notice = asyncComponent(() => import('routes/Main/Notice'), ['notice']);
+  const Account = asyncComponent(() => import('routes/Main/Account'), ['account']);
+  const SignIn = asyncComponent(() => import('routes/User/SignIn'));
+  const SignUp = asyncComponent(() => import('routes/User/SignUp'), ['signup']);
+  const Reset = asyncComponent(() => import('routes/User/Reset'));
+  const NotFound = asyncComponent(() => import('routes/Exception/404'));
 
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/exchange" exact component={Exchange} />
-        <Route path="/c2c" exact component={C2C} />
-        <Route path="/help" exact component={Help} />
-        <Route path="/notice" exact component={Notice} />
-        <Route path="/account" exact component={Account} />
-        <Route path="/signin" exact component={SignIn} />
-        <Route path="/signup" exact component={SignUp} />
-        <Route path="/reset" exact component={Reset} />
+        <Main>
+          <Route path="/" exact component={Home} />
+          <Route path="/exchange" exact component={Exchange} />
+          <Route path="/c2c" exact component={C2C} />
+          <Route path="/help" exact component={Help} />
+          <Route path="/notice" exact component={Notice} />
+          <Route path="/account" exact component={Account} />
+        </Main>
+        <User>
+          <Route path="/signin" exact component={SignIn} />
+          <Route path="/signup" exact component={SignUp} />
+          <Route path="/reset" exact component={Reset} />
+        </User>
         <Route component={NotFound} />
       </Switch>
     </Router>
