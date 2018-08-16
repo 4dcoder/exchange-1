@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button, Menu, Dropdown, Icon } from 'antd';
 import { getFlag } from 'utils';
 import { connect } from 'dva';
-import styles from './join.less';
+import styles from './user.less';
 
 @connect(({ global }) => ({ ...global }))
 class Join extends PureComponent {
@@ -21,7 +21,7 @@ class Join extends PureComponent {
     const { language, localization } = this.props;
 
     return (
-      <div className={styles.joinWrap}>
+      <div className={styles.userWrap}>
         <Link to="/signin">{localization['登录']}</Link>
         <Link to="/signup">{localization['注册']}</Link>
         <Dropdown
