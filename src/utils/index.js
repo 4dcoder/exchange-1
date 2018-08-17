@@ -103,16 +103,3 @@ export function getFlag(lang) {
     <span key="text"> {mapLangToText[lang]} </span>
   ];
 }
-
-/**
- * @author WilliamCui
- * @description 根据传入的title补全title全称
- * @param title {string} 页面title
- * @returns string
- **/
-const indexTitle = document.title;
-export function setTitle(title) {
-  return localization => {
-    return `${localization[title]}-${localization[indexTitle]}`;
-  };
-}

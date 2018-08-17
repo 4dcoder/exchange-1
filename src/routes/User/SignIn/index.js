@@ -1,14 +1,13 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'dva';
-import DocumentTitle from 'react-document-title';
-import { setTitle } from 'utils';
+
 import styles from './signin.less';
 
-@connect(({ global }) => ({ ...global }))
+@connect(({ signin }) => ({ ...signin }))
 class SignIn extends PureComponent {
   render() {
     const { localization } = this.props;
-    return <DocumentTitle title={setTitle('登录')(localization)}>这是登录页面</DocumentTitle>;
+    return <Fragment>{localization['登录']}</Fragment>;
   }
 }
 

@@ -7,7 +7,7 @@ import { connect } from 'dva';
 import styles from './user.less';
 
 @connect(({ global }) => ({ ...global }))
-class Join extends PureComponent {
+class User extends PureComponent {
   dispatch = this.props.dispatch;
 
   handleSwitchLanguage = ({ key }) => {
@@ -44,4 +44,4 @@ class Join extends PureComponent {
   }
 }
 
-export default withRouter(Join);
+export default withRouter(User);

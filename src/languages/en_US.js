@@ -18,4 +18,5 @@ export default {
   找回密码: 'Reset Password',
   未找到页面: 'Not Found Page',
   全球专业数字资产交易所: 'The World Class Digital Asset Exchange',
+  '抱歉，你访问的页面不存在': 'Sorry, the page you visited does not exist'
 }
