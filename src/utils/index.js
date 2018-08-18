@@ -13,12 +13,11 @@ export function fillZero(number, n) {
 * @author William Cui
 * @description 根据后端返回的时间戳格式化成指定的格式
 * @param timestamp {number} 需要格式化的时间戳
-* @param patternStr {string} 指定的格式字符串 默认是'YYYY-MM-DD hh:mm:ss'
+* @param pattern {string} 指定的格式字符串 默认是'YYYY-MM-DD hh:mm:ss'
 * @returns {string} 格式化后的日期时间字符串
 Y: 代表年份， M: 代表月份， D: 代表一个月中的第几天， h: 代表小时， m: 代表分, s: 代表秒
 **/
-export function stampToDate(timestamp, patternStr = 'YYYY-MM-DD hh:mm:ss') {
-  const patternArray = patternStr.match(/\w+/g);
+export function stampToDate(timestamp, pattern = 'YYYY-MM-DD hh:mm:ss') {
   const date = new Date(timestamp);
   const dateObj = {
     Y: date.getFullYear(),
@@ -28,11 +27,9 @@ export function stampToDate(timestamp, patternStr = 'YYYY-MM-DD hh:mm:ss') {
     m: date.getMinutes(),
     s: date.getSeconds()
   };
-  patternArray.forEach(pattern => {
-    let replaceStr = fillZero(dateObj[pattern[0]], pattern.length);
-    patternStr = patternStr.replace(pattern, replaceStr);
+  return pattern.replace(/\w+/g, match => {
+    return fillZero(dateObj[match[0]], match.length);
   });
-  return patternStr;
 }
 
 /**
