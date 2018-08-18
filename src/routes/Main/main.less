@@ -24,6 +24,7 @@
       margin-left: 40px;
       line-height: 60px;
       a {
+        position: relative;
         display: inline-block;
         padding: 0 20px;
         &:link,
@@ -32,18 +33,22 @@
         }
         &:hover,
         &.active {
-          position: relative;
           color: @primary-color;
         }
-        &.active:before {
+        &:before {
           display: inline-block;
           position: absolute;
           bottom: 0;
-          left: 0;
-          width: 100%;
+          left: 50%;
+          width: 0;
           height: 2px;
           content: '';
           background-color: @primary-color;
+          transform: translate3d(-50%, 0, 0);
+          transition: 0.2s width;
+        }
+        &.active:before {
+          width: 100%;
         }
         &:hover:after {
           position: absolute;
@@ -58,36 +63,45 @@
       }
     }
   }
-  .headerRight a {
-    display: inline-block;
-    padding: 0 20px;
-    font-size: 14px;
-    &:link,
-    &:visited {
-      color: @gray-color;
-    }
-    &:hover,
-    &.active {
-      position: relative;
-      color: @primary-color;
-    }
-    &.signup {
-      padding: 0 21px;
-      line-height: 34px;
-      border-radius: @border-radius-base;
-      border: 1px solid @gray-color;
-      &:hover {
-        color: #fff;
-        border-color: @primary-color;
-        background-color: @primary-color;
+  .headerRight {
+    a {
+      display: inline-block;
+      padding: 0 20px;
+      font-size: 14px;
+      &:link,
+      &:visited {
+        color: @gray-color;
+      }
+      &:hover,
+      &.active {
+        position: relative;
+        color: @primary-color;
+      }
+      &.signup {
+        margin-right: 20px;
+        padding: 0 21px;
+        line-height: 34px;
+        border-radius: @border-radius-base;
+        border: 1px solid @gray-color;
+        &:hover {
+          color: #fff;
+          border-color: @primary-color;
+          background-color: @primary-color;
+        }
       }
     }
-    &.language {
-      width: 100px;
-      margin-left: 20px;
-      padding: 0;
+    .language {
+      display: inline-block;
+      width: 120px;
+      font-size: 14px;
       line-height: 50px;
       text-align: right;
+      cursor: pointer;
+      color: @gray-color;
+      transition: 0.2s color;
+      &:hover {
+        color: @primary-color;
+      }
     }
     img {
       width: 24px;
@@ -109,7 +123,11 @@
       justify-content: space-between;
       align-items: center;
       .mobile {
-        margin-top: -30px;
+        margin-top: 10px;
+        transition: 0.2s transform ease-out;
+        &:hover {
+          transform: translate3d(0, -20px, 0);
+        }
       }
       .qrcode {
         width: 100px;
@@ -150,6 +168,7 @@
     }
   }
   .floorTwo {
+    position: relative;
     height: 100px;
     font-size: 16px;
     background-color: #222734;

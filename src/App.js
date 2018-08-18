@@ -97,7 +97,7 @@ class App extends React.Component {
     return (
       <DocumentTitle title={this.getTitle()}>
         <Container>
-          <Route path={pathname} render={props => <Component {...props} {...this.props} />} />
+          <Route path={pathname} render={props => <Component {...this.props} {...props} />} />
         </Container>
       </DocumentTitle>
     );

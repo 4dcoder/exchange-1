@@ -60,10 +60,10 @@ class Main extends PureComponent {
                 </Menu>
               }
             >
-              <a className={('ant-dropdown-link', styles.language)} href="javascript:;">
+              <span className={('ant-dropdown-link', styles.language)}>
                 {getFlag(language)}
                 <Icon type="down" />
-              </a>
+              </span>
             </Dropdown>
           </div>
         </header>
@@ -97,11 +97,11 @@ class Main extends PureComponent {
             <nav className="wrapper">
               <Link to="/about">{localization['关于我们']}</Link>
               <Link to="/apply">{localization['上币申请']}</Link>
-              <Link to="/agreement">{localization['用户协议']}</Link>
-              <Link to="/exchange">{localization['隐私声明']}</Link>
-              <Link to="/exchange">{localization['法律声明']}</Link>
+              <Link to="/terms">{localization['用户协议']}</Link>
+              <Link to="/privacy">{localization['隐私声明']}</Link>
+              <Link to="/legal">{localization['法律声明']}</Link>
               <Link to="/help">{localization['帮助中心']}</Link>
-              <Link to="/qa">{localization['常见问题']}</Link>
+              <Link to="/faq">{localization['常见问题']}</Link>
             </nav>
           </div>
           <div className={styles.floorThree}>

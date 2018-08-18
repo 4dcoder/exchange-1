@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 
-import styles from './notice.less';
+// import styles from './notice.less';
 
 @connect(({ notice }) => ({ ...notice }))
 class Notice extends PureComponent {

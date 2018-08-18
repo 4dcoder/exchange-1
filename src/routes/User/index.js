@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button, Menu, Dropdown, Icon } from 'antd';
 import { getFlag } from 'utils';
 import { connect } from 'dva';
+
 import styles from './user.less';
 
 @connect(({ global }) => ({ ...global }))
@@ -33,10 +34,10 @@ class User extends PureComponent {
               </Menu>
             }
           >
-            <a className={('ant-dropdown-link', styles.language)} href="javascript:;">
+            <span className={('ant-dropdown-link', styles.language)}>
               {getFlag(language)}
               <Icon type="down" />
-            </a>
+            </span>
           </Dropdown>
           <Button onClick={() => this.props.history.push('/')}>{localization['返回首页']}</Button>
           <main>{this.props.children}</main>

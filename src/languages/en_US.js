@@ -8,7 +8,7 @@ export default {
   C2C交易: 'C2C',
   帮助中心: 'Help',
   公告中心: 'Notice',
-  用户中心: 'User',
+  个人中心: 'Account',
   关于我们: 'About',
   上币申请: 'Apply to List',
   用户协议: 'Terms',

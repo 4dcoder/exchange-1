@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'dva';
 
-import styles from './signin.less';
+// import styles from './signin.less';
 
 @connect(({ signin }) => ({ ...signin }))
 class SignIn extends PureComponent {

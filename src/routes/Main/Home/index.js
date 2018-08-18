@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 
-import styles from './home.less';
+// import styles from './home.less';
 
 @connect(({ exchange }) => ({ ...exchange }))
 class Home extends PureComponent {

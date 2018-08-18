@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Button } from 'antd';
+
 import styles from './404.less';
 
 class NotFound extends PureComponent {

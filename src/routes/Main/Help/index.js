@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 
-import styles from './help.less';
+// import styles from './help.less';
 
 @connect(({ help }) => ({ ...help }))
 class Help extends PureComponent {

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 
-import styles from './account.less';
+// import styles from './account.less';
 
 @connect(({ account }) => ({ ...account }))
 class Account extends PureComponent {

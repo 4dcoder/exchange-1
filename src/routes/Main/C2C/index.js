@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 
-import styles from './c2c.less';
+// import styles from './c2c.less';
 
 @connect(({ c2c }) => ({ ...c2c }))
 class C2C extends PureComponent {
