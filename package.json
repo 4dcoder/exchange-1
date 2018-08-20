@@ -1,4 +1,7 @@
 {
+  "name": "exchange",
+  "version": "0.0.1",
+  "description": "Blockchain & Crypto Asset Exchange",
   "private": true,
   "scripts": {
     "start": "cross-env ESLINT=none roadhog server",

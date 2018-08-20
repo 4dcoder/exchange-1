@@ -2,6 +2,7 @@ const path = require('path');
 
 export default {
   entry: 'src/index.js',
+  outputPath: path.resolve(__dirname, 'html'),
   extraBabelPlugins: [['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }]],
   env: {
     development: {
