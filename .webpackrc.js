@@ -8,10 +8,13 @@ export default {
       extraBabelPlugins: ['dva-hmr']
     }
   },
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM'
-  },
+  externals:
+    process.env.NODE_ENV === 'production'
+      ? {
+          react: 'React',
+          'react-dom': 'ReactDOM'
+        }
+      : {},
   alias: {
     assets: path.resolve(__dirname, 'src/assets/'),
     components: path.resolve(__dirname, 'src/components/'),
