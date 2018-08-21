@@ -6,7 +6,6 @@ import { connect } from 'dva';
 @connect(({ exchange }) => ({ ...exchange }))
 class Home extends PureComponent {
   dispatch = this.props.dispatch;
-
   render() {
     const { localization } = this.props;
     return <div className="wrapper">{localization['首页']}</div>;

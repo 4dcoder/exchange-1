@@ -6,6 +6,7 @@ import { ScaleLoader } from 'react-spinners';
 import Main from 'routes/Main';
 import User from 'routes/User';
 import DocumentTitle from 'react-document-title';
+import pathToRegexp from 'path-to-regexp';
 
 @connect(({ global }) => ({ ...global }))
 class App extends React.Component {
@@ -75,27 +76,37 @@ class App extends React.Component {
     }
   };
 
-  getTitle = () => {
+  matchRoute = () => {
     const siteTitle = '区块链资产交易平台';
-    const { location, localization } = this.props;
+    const {location, localization} = this.props;
     const { pathname } = location;
-    const { title } = this.routerConf[pathname] || this.routerConf['/404'];
+    let route = this.routerConf['/404'];
+    if (this.routerConf[pathname]) {
+      route = this.routerConf[pathname];
+    } else {
+      Object.keys(this.routerConf).forEach(path => {
+        if (pathToRegexp(path).test(pathname)) {
+          route = this.routerConf[path];
+        }
+      });
+    }
 
-    return `${localization[title]}-${localization[siteTitle]}`;
+    return {
+      title: `${localization[route.title]}-${localization[siteTitle]}`,
+      Component: route.Component,
+    }
   };
 
   render() {
     const { pathname } = this.props.location;
     const UserPaths = ['/signin', '/signup', '/reset'];
-    const Container = this.routerConf[pathname]
-      ? UserPaths.indexOf(pathname) > -1
-        ? User
-        : Main
-      : Fragment;
-    const { Component } = this.routerConf[pathname] || this.routerConf['/404'];
+
+    const { Component, title } = this.matchRoute();
+
+    const Container = title ? (UserPaths.indexOf(pathname) > -1 ? User : Main) : Fragment;
 
     return (
-      <DocumentTitle title={this.getTitle()}>
+      <DocumentTitle title={title}>
         <Container>
           <Route path={pathname} render={props => <Component {...this.props} {...props} />} />
         </Container>
