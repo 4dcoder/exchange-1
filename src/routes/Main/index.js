@@ -1,6 +1,5 @@
 import React, { PureComponent, Fragment } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { connect } from 'dva';
 import { Menu, Dropdown, Icon, Button } from 'antd';
 import { getFlag } from 'utils';
 
@@ -9,7 +8,6 @@ import logo from '../../../logo.svg';
 import mobile from 'assets/images/footer-mobile.png';
 import qrcode from 'assets/images/wechat-code.jpg';
 
-@connect(({ global }) => ({ ...global }))
 class Main extends PureComponent {
   dispatch = this.props.dispatch;
 

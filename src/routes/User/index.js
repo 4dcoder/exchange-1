@@ -3,11 +3,9 @@ import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Button, Menu, Dropdown, Icon } from 'antd';
 import { getFlag } from 'utils';
-import { connect } from 'dva';
 
 import styles from './user.less';
 
-@connect(({ global }) => ({ ...global }))
 class User extends PureComponent {
   dispatch = this.props.dispatch;
 
