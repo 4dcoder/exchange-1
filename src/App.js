@@ -120,7 +120,7 @@ class App extends React.Component {
 
     return (
       <DocumentTitle title={title}>
-        <Container {...global}>
+        <Container {...this.props} {...global}>
           <Route path={pathname} render={props => <Component {...props} {...global} />} />
         </Container>
       </DocumentTitle>
