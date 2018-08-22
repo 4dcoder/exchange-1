@@ -6,6 +6,7 @@ import { ScaleLoader } from 'react-spinners';
 import DocumentTitle from 'react-document-title';
 import pathToRegexp from 'path-to-regexp';
 
+// 容器组件
 import Main from 'routes/Main';
 import User from 'routes/User';
 
@@ -103,13 +104,17 @@ class App extends React.Component {
     }
 
     return {
-      Component: route.component,
       title: `${localization[route.title]}-${localization['区块链资产交易平台']}`,
       Container: route.containers
         ? route.containers.reduce((A, B) => {
-            return React.createElement(A, null, B);
+            return props => (
+              <A {...props}>
+                <B {...props}>{props.children}</B>
+              </A>
+            );
           })
-        : Fragment
+        : Fragment,
+      Component: route.component
     };
   };
 
