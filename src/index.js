@@ -1,3 +1,4 @@
+import './polyfill';
 import dva from 'dva';
 import createHistory from 'history/createBrowserHistory';
 import './index.less';

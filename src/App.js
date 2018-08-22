@@ -10,7 +10,7 @@ import pathToRegexp from 'path-to-regexp';
 import Main from 'routes/Main';
 import User from 'routes/User';
 
-@connect(({ global }) => ({ global }))
+@connect(({ global }) => ({ ...global }))
 class App extends React.Component {
   asyncComponent = (loader, models) => {
     const { app } = this.props;
@@ -88,9 +88,8 @@ class App extends React.Component {
   };
 
   matchRoute = () => {
-    const { location, global } = this.props;
+    const { location, localization } = this.props;
     const { pathname } = location;
-    const { localization } = global;
 
     let route = this.routerConf['/404'];
     if (this.routerConf[pathname]) {
@@ -119,14 +118,13 @@ class App extends React.Component {
   };
 
   render() {
-    const { global, location } = this.props;
-    const { pathname } = location;
+    const { pathname } = this.props.location;
     const { title, Container, Component } = this.matchRoute();
 
     return (
       <DocumentTitle title={title}>
-        <Container {...this.props} {...global}>
-          <Route path={pathname} render={props => <Component {...props} {...global} />} />
+        <Container {...this.props}>
+          <Route path={pathname} render={props => <Component {...this.props} {...props} />} />
         </Container>
       </DocumentTitle>
     );

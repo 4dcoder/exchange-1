@@ -7,7 +7,7 @@ export default {
 
   subscriptions: {
     setup({ dispatch, history }) {
-      console.log('offline');
+      console.log('signup');
     }
   },
 
