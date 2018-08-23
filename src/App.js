@@ -15,7 +15,6 @@ class App extends React.Component {
   asyncComponent = (loader, models) => {
     const { app } = this.props;
     return Loadable({
-      delay: 200,
       loader,
       loading: () => {
         if (models && models.length > 0) {

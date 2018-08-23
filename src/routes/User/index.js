@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Button, Menu, Dropdown, Icon } from 'antd';
 import { getFlag } from 'utils';
 

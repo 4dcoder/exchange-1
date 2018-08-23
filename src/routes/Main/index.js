@@ -72,13 +72,13 @@ class Main extends PureComponent {
           <div className={styles.floorOne}>
             <div className="wrapper">
               <div className={styles.downApp}>
-                <img className={styles.mobile} src={mobile} alt="app" />
+                <img className={styles.phone} src={mobile} alt="app" />
                 <div className={styles.qrcode}>
                   <img src={qrcode} alt="qrcode" />
                 </div>
                 <div className={styles.link}>
                   <Button href="#" size="large" icon="apple">
-                    &nbsp;&nbsp;IPhone APP
+                    IPhone APP
                   </Button>
                   <Button href="#" size="large" icon="android">
                     Android APP
@@ -104,7 +104,7 @@ class Main extends PureComponent {
           </div>
           <div className={styles.floorThree}>
             <div className="wrapper">
-              <div className={styles.copyright}>Copyright 2018 UES. All Right Reserved.</div>
+              <div className={styles.copyright}>Copyright 2018 Exchange. All Right Reserved.</div>
               <div className={styles.socialMedia}>
                 <Link to="/exchange">
                   <Icon type="wechat" />

@@ -44,12 +44,9 @@
           content: '';
           background-color: @primary-color;
           transform: translate3d(-50%, 0, 0);
-          transition: 0.2s width;
+          transition: 0.2s width ease-out;
         }
-        &.active:before {
-          width: 100%;
-        }
-        &:hover:after {
+        &:after {
           position: absolute;
           top: 0;
           right: 0;
@@ -57,7 +54,16 @@
           left: 0;
           content: '';
           background-color: @primary-color;
+          opacity: 0;
+          transform: translate3d(0, -100%, 0);
+          transition: 0.2s all ease-out;
+        }
+        &.active:before {
+          width: 100%;
+        }
+        &:hover:after {
           opacity: 0.2;
+          transform: translate3d(0, 0, 0);
         }
       }
     }
@@ -121,7 +127,7 @@
       width: 540px;
       justify-content: space-between;
       align-items: center;
-      .mobile {
+      .phone {
         margin-top: 10px;
         transition: 0.2s transform ease-out;
         &:hover {
@@ -141,15 +147,20 @@
         width: 180px;
         :global {
           a.ant-btn {
+            display: flex;
             width: 100%;
             margin: 10px 0;
-            color: lighten(@footer-font-color, 40%);
+            padding: 0 30px;
+            align-items: center;
             background-color: transparent;
             border: 1px solid @footer-font-color;
+            transition: 0.2s padding;
             .anticon {
-              margin-top: -5px;
               font-size: 24px;
-              vertical-align: middle;
+            }
+            &:hover {
+              padding-left: 25px;
+              color: lighten(@footer-font-color, 40%);
             }
           }
         }
